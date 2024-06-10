@@ -34,7 +34,7 @@ make
 Run the compiled program:
 
 ```bash
-./data_structures
+make run
 ```
 
 ## Versioning

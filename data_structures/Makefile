@@ -2,7 +2,7 @@ CC=clang                      # Using clang compiler
 CFLAGS=-I. -Wall -g           # Compilation flags, including current directory for headers and enabling all warnings and debugging
 
 # List of object files based on source files
-OBJ = main.o
+OBJ = main.o # linked_list/linked_list.o stack/stack.o queue/queue.o binary_tree/binary_tree.o
 
 # Name of the executable file
 EXECUTABLE=data_structures
