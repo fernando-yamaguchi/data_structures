@@ -1,4 +1,4 @@
-#include "linked_list/linked_list.h"
+#include "linked_list.h"
 
 void print_int(void *n) {
     printf("%d -> ", *(int *)n);

@@ -1,7 +1,29 @@
-*.o
-*.exe
-*.out
-/bin/
-/build/
+# Ignore all log files
+*.log
 
-data_structures
+# Ignore object files and temporary build files
+*.o
+*.obj
+*.tmp
+
+# Ignore compiled binary executables and libraries
+/bin/
+/lib/
+
+# Ignore object files directory
+/obj/
+
+# Ignore any editor or IDE specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Ignore all text files that might be generated
+*.txt
+
+# Ignore specific config files
+/config.json
+
+# Ignore backup files
+*~
