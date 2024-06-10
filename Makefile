@@ -18,5 +18,3 @@ clean:
 
 run:
 	./$(EXECUTABLE)
-
-.PHONY: all clean run
