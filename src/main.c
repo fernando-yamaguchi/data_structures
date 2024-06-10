@@ -2,29 +2,45 @@
 #include "queue.h"
 
 int main() {
-    queue_t *myQueue = create_queue();
-    if (myQueue == NULL) {
-        fprintf(stderr, "Failed to create queue\n");
+    int data;
+    queue_t *queue = create_queue();
+    if (queue == NULL) {
+        printf("Failed to create the queue.\n");
         return 1;
     }
 
-    enqueue(myQueue, 10);
-    enqueue(myQueue, 20);
-    enqueue(myQueue, 30);
+    printf("Enqueue elements 10, 20, and 30.\n");
+    enqueue(queue, 10);
+    enqueue(queue, 20);
+    enqueue(queue, 30);
 
-    printf("Successfully enqueued 10, 20, 30\n");
-
-    int dequeuedValue;
-    while (!is_queue_empty(myQueue)) {
-        if (dequeue(myQueue, &dequeuedValue) != -1) {
-            printf("Dequeued: %d\n", dequeuedValue);
-        } else {
-            fprintf(stderr, "Failed to dequeue\n");
-        }
+    // Test peek functionality
+    if (peek(queue, &data) == 0) {
+        printf("Peeked at front element: %d\n", data);
+    } else {
+        printf("Failed to peek at front element.\n");
     }
 
-    free(myQueue);
-    myQueue = NULL;
+    // Dequeue all elements and print them
+    printf("Dequeueing elements:\n");
+    while (!is_queue_empty(queue)) {
+        if (dequeue(queue, &data) == 0) {
+            printf("%d ", data);
+        } else {
+            printf("Failed to dequeue an element.\n");
+        }
+    }
+    printf("\n");
 
+    // Try to dequeue from an empty queue to check error handling
+    printf("Attempting to dequeue from an empty queue: ");
+    if (dequeue(queue, &data) == -1) {
+        printf("Passed. Queue is empty as expected.\n");
+    } else {
+        printf("Failed. Unexpected behavior when dequeuing from an empty queue.\n");
+    }
+
+    // Clean up
+    free(queue);
     return 0;
 }
