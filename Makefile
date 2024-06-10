@@ -38,13 +38,13 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Clean up the build
+clean:
+	@rm -rf $(BIN_DIR) $(OBJ_DIR)
+
 # Run the program
 run: 
 	@echo "Running the program..."
 	@./$(TARGET)
-
-# Clean up the build
-clean:
-	@rm -rf $(BIN_DIR) $(OBJ_DIR)
 
 .PHONY: all clean run
